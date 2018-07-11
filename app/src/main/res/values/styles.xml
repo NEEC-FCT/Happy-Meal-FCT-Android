@@ -1,0 +1,56 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- Inicio do primeiro screen. -->
+    <style name="GreyView">
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="RestaurantPicture">
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_width">170dp</item>
+        <item name="android:layout_height">170dp</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+    
+    <style name="RestaurantTextStyle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColor">#383838</item>
+    </style>
+
+    <style name="Button" parent="Base.TextAppearance.AppCompat.Button">
+        <item name="backgroundTint">@color/red</item>
+    </style>
+
+    <style name="Button2">
+        <item name="backgroundTint">#54C242</item>
+    </style>
+
+    <style name="Button3">
+        <item name="backgroundTint">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="Button4">
+        <item name="backgroundTint">@color/red</item>
+    </style>
+
+    <style name="Button5">
+        <item name="backgroundTint">@color/yellow</item>
+    </style>
+
+    <style name="Button6">
+        <item name="backgroundTint">@color/brown</item>
+    </style>
+
+
+</resources>

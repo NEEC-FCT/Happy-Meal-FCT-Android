@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/creditosRL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/ButtonDayColor">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/my_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/ButtonDayColor"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="About Us"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+        </android.support.v7.widget.Toolbar>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/creditosRL">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:id="@+id/introTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:autoSizeMaxTextSize="20sp"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeStepGranularity="2sp"
+                android:autoSizeTextType="uniform"
+                android:paddingBottom="15dp"
+                android:text="@string/credito_intro"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/otherBlack" />
+
+            <LinearLayout
+                android:id="@+id/linksLL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/introTxt"
+                android:layout_marginBottom="12dp"
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/FaceLL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true">
+
+                    <ImageView
+                        android:id="@+id/FaceImage"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:elevation="20dp"
+                        android:src="@drawable/face" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@id/FaceImage"
+                        android:text="Deixa um like na nossa página!"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/otherBlack" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/GmailLL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/FaceLL"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="15dp">
+
+                    <ImageView
+                        android:id="@+id/GmailImagem"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/gmail" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@id/GmailImagem">
+
+                        <TextView
+                            android:id="@+id/GmailText1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tens alguma questão?"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/otherBlack" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/GmailText1"
+                            android:text="Envia-nos um email!"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/otherBlack" />
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/GmailLL"
+                    android:layout_marginTop="15dp">
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

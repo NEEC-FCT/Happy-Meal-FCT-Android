@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFA">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        style="@style/GreyView"
+        android:layout_centerVertical="true"
+        android:elevation="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="8dp">
+
+        <ImageView
+            android:id="@+id/RestaurantePicture"
+            android:layout_width="wrap_content"
+            android:layout_height="190dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_below="@id/RestaurantePicture"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/rest_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/otherBlack"
+                android:textStyle="bold"
+                android:typeface="sans"
+                tools:text="Cantina" />
+
+            <TextView
+                android:id="@+id/restaurantPlace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#BDBDBD"
+                android:typeface="normal"
+                tools:text="Edifício 7" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/vegetarianoText"
+                        android:background="@drawable/backtextview2"
+                        style="@style/Button2"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/white"
+                        android:paddingLeft="2dp"
+                        android:paddingRight="2dp"
+                        android:paddingTop="1dp"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        tools:text="Vegetariano"
+                        android:layout_marginRight="4dp"/>
+
+
+                    <TextView
+                        android:id="@+id/price_Tag"
+                        android:background="@drawable/backtextview2"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/otherBlack"
+                        android:paddingLeft="2dp"
+                        android:paddingRight="2dp"
+                        android:paddingTop="1dp"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        tools:text="2.65€"/>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="6dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/LunchTime"
+                    android:background="@drawable/rectround"
+                    style="@style/Button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/white"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:paddingTop="1dp"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    tools:text="11:30"
+                    android:layout_marginRight="4dp"/>
+
+                <TextView
+                    android:id="@+id/LunchClose"
+                    android:background="@drawable/rectround"
+                    style="@style/Button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/white"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:paddingTop="1dp"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    tools:text="15:00"
+                    android:layout_marginRight="4dp"/>
+
+                <TextView
+                    android:id="@+id/DinnerTime"
+                    android:background="@drawable/rectround"
+                    style="@style/Button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/white"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:paddingTop="1dp"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    tools:text="19:00"
+                    android:layout_marginRight="4dp"/>
+
+                <TextView
+                    android:id="@+id/DinnerClose"
+                    android:background="@drawable/rectround"
+                    style="@style/Button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/white"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:paddingTop="1dp"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    tools:text="21:00"
+                    android:layout_marginRight="4dp"/>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="?android:attr/selectableItemBackground">
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
+

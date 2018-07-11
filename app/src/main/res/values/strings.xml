@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_label">Happy Meal FCT</string>
+    <string name="search_hint">Restaurante, Vegatariano, Hamburguer...</string>
+    <string name="credito_intro">\tA aplicação Happy Meal FCT foi criada com o intuito
+        de servir a comunidade FCTense, assim cada utilizador desta aplicação poderá
+        obter os conteúdos de cada restaurante ou cafetaria pertencente a esta instituição.
+        \n\n\tCaso nos desejes contactar podes obter mais informações com os dados apresentados a seguir:</string>
+
+    <string name="search">Search: Refeições, Bebidas</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="title_activity_maps">Map</string>
+</resources>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFA">
+
+    <RelativeLayout
+        android:layout_width="170dp"
+        android:layout_height="250dp"
+        style="@style/GreyView"
+        android:elevation="4dp"
+        android:layout_marginBottom="8dp"
+        android:outlineProvider="bounds">
+
+        <ImageView
+            android:id="@+id/RestaurantePicture"
+            style="@style/RestaurantPicture"
+            tools:src="@drawable/cantina8"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_below="@id/RestaurantePicture"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/rest_name"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:text="Cantina" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/open_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    tools:text="Aberto" />
+
+                <ImageView
+                    android:id="@+id/open_Image"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_gravity="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/price_textView"
+                    style="@style/RestaurantTextStyle"
+                    android:textSize="16sp"
+                    tools:text="Preço Médio"/>
+
+                <TextView
+                    android:id="@+id/price_Tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:layout_marginLeft="8dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:text="2.65€"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="170dp"
+            android:layout_height="250dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:layout_alignParentTop="true">
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
+

@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/creditosRL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/my_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/ButtonDayColor"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/white"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textStyle="bold"
+            android:text="Notificações"
+            />
+        </android.support.v7.widget.Toolbar>
+
+
+    <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_below="@id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="5dp"
+            android:paddingLeft="10dp"
+            android:paddingBottom="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/Res1Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:text="Teresa" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/Res1Hora"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="17sp"
+                        tools:text="12:30\n13:50" />
+
+                    <TextView
+                        android:id="@+id/Res1Promocao"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="17sp"
+                        tools:text="Crocretes\nComida a seriso" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/Res2Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:text="Teresa" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/Res2Hora"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="17sp"
+                        tools:text="12:30\n13:50" />
+
+                    <TextView
+                        android:id="@+id/Res2Promocao"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="17sp"
+                        tools:text="Crocretes\nComida a seriso" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/Res3Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:text="Teresa" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/Res3Hora"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="17sp"
+                        tools:text="12:30\n13:50" />
+
+                    <TextView
+                        android:id="@+id/Res3Promocao"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="17sp"
+                        tools:text="Crocretes\nComida a seriso" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/Res4Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:text="Teresa" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/Res4Hora"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="17sp"
+                        tools:text="12:30\n13:50" />
+
+                    <TextView
+                        android:id="@+id/Res4Promocao"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="17sp"
+                        tools:text="Crocretes\nComida a seriso" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/Res5Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:text="Teresa" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/Res5Hora"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="17sp"
+                        tools:text="12:30\n13:50" />
+
+                    <TextView
+                        android:id="@+id/Res5Promocao"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="17sp"
+                        tools:text="Crocretes\nComida a seriso" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/Res6Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:text="Teresa" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/Res6Hora"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="17sp"
+                        tools:text="12:30\n13:50" />
+
+                    <TextView
+                        android:id="@+id/Res6Promocao"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="17sp"
+                        tools:text="Crocretes\nComida a seriso" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/Res7Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:text="Teresa" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/Res7Hora"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="17sp"
+                        tools:text="12:30\n13:50" />
+
+                    <TextView
+                        android:id="@+id/Res7Promocao"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="17sp"
+                        tools:text="Crocretes\nComida a seriso" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/Res8Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:text="Teresa" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/Res8Hora"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="17sp"
+                        tools:text="12:30\n13:50" />
+
+                    <TextView
+                        android:id="@+id/Res8Promocao"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="17sp"
+                        tools:text="Crocretes\nComida a seriso" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/Res9Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textColor="@color/otherBlack"
+                    android:textStyle="bold"
+                    tools:text="Teresa" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/Res9Hora"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="17sp"
+                        tools:text="12:30\n13:50" />
+
+                    <TextView
+                        android:id="@+id/Res9Promocao"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="17sp"
+                        tools:text="Crocretes\nComida a seriso" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/Res10Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:text="Teresa" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/Res10Hora"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="17sp"
+                        tools:text="12:30\n13:50" />
+
+                    <TextView
+                        android:id="@+id/Res10Promocao"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="17sp"
+                        tools:text="Crocretes\nComida a seriso" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/Res11Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textColor="@color/otherBlack"
+                    android:textStyle="bold"
+                    tools:text="Teresa" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/Res11Hora"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="17sp"
+                        tools:text="12:30\n13:50" />
+
+                    <TextView
+                        android:id="@+id/Res11Promocao"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="17sp"
+                        tools:text="Crocretes\nComida a seriso" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    </RelativeLayout>
+
+</RelativeLayout>

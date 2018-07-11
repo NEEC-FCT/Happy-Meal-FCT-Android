@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/sandes"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        tools:text="Sandes"
+        android:textColor="@android:color/black"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/square_down"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        tools:src="@drawable/squar_down"
+        android:layout_above="@+id/sandes_price"
+        android:layout_alignLeft="@+id/sandes_price"
+        android:layout_alignStart="@+id/sandes_price" />
+
+    <TextView
+        android:layout_below="@id/sandes"
+        android:id="@+id/sandesString"
+        android:textSize="18sp"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        tools:text="c/ Queijo"
+        android:textAppearance="?android:textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/sandes_price"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp"
+        android:layout_alignBottom="@id/sandesString"
+        tools:text="5.3€"
+        android:textAppearance="?android:textAppearanceMedium"/>
+
+</RelativeLayout>

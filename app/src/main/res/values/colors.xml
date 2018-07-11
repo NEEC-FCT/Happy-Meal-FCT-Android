@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#54C242</color> //Toolbar
+    <color name="colorPrimaryDark">#459f37</color> //App bar
+    <color name="red">#e70721</color>
+    <color name="yellow">#e7e307</color>
+    <color name="brown">#cc9017</color>
+    <color name="ButtonDayColor">#46B388</color>
+    <color name="ButtonDayTransperanceColor">#BAE4D3</color>
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="greyColor">#E2E2E2</color>
+    <color name="otherBlack">#383838</color>
+    <color name="white">#FFFFFF</color>
+</resources>

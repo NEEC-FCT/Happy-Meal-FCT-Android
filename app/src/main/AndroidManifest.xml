@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="miguelcalado.restauracaomenus">
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality. 
+    -->
+
+    <application
+        android:icon="@drawable/xxhdpi"
+        android:label="Happy Meal FCT"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".FirstScreen"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="MainActivity"
+            android:parentActivityName=".FirstScreen"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:resource="@layout/searchable"
+                android:value="miguelcalado.restauracaomenus.FirstScreen" />
+        </activity>
+
+        <activity
+            android:name=".NotificationActivity"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="miguelcalado.restauracaomenus.MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".CantinaFile.Cantina"
+            android:label="Cantina"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="miguelcalado.restauracaomenus.MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="miguelcalado.restauracaomenus.MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".AboutUs"
+            android:label="AboutUs"
+            android:parentActivityName=".FirstScreen"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="miguelcalado.restauracaomenus.FirstScreen" />
+        </activity>
+
+        <activity
+            android:name=".TeresaFile.TeresaCafetaria"
+            android:label="Teresa"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="miguelcalado.restauracaomenus.MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".TeresaFile.Teresa"
+            android:label="Teresa"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="miguelcalado.restauracaomenus.MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".BarCampusFile.BarCampusFile.BarCampus"
+            android:label="Bar Campus"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="miguelcalado.restauracaomenus.MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".GirassolFile.Girassol"
+            android:label="Tia"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="miguelcalado.restauracaomenus.MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".CasaPessoalFile.CasaPessoalCafetaria"
+            android:label="Casa do Pessoal"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="miguelcalado.restauracaomenus.MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".CasaPessoalFile.CasaPessoal"
+            android:label="Casa do Pessoal"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="miguelcalado.restauracaomenus.MainActivity" />
+        </activity>
+        <activity
+            android:name=".MySpotFile.MySpotCafetaria"
+            android:label="My Spot"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="miguelcalado.restauracaomenus.MainActivity" />
+        </activity>
+        <activity
+            android:name=".MySpotFile.MySpot"
+            android:label="My Spot"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="miguelcalado.restauracaomenus.MainActivity" />
+        </activity>
+        <activity
+            android:name=".CampusComeFile.CampusCome"
+            android:label="C@mpus Come"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="miguelcalado.restauracaomenus.MainActivity" />
+        </activity>
+        <activity
+            android:name=".SectorMaisEd7File.SectorMaisCafetaria"
+            android:label="Sector Mais"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="miguelcalado.restauracaomenus.MainActivity" />
+        </activity>
+        <activity
+            android:name=".SectorMaisEd7File.Sector_mais"
+            android:label="Sector Mais"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="miguelcalado.restauracaomenus.MainActivity" />
+        </activity>
+        <activity
+            android:name=".BarCampusFile.BarCampusFile.BarCampusCafetaria"
+            android:label="Bar Campus"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="miguelcalado.restauracaomenus.MainActivity" />
+        </activity>
+        <activity
+            android:name=".SectorMaisDepFile.SectorMaisDepCafetaria"
+            android:label="Sector + Dep"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="miguelcalado.restauracaomenus.MainActivity" />
+        </activity>
+        <activity
+            android:name=".GirassolFile.GirassolCafetaria"
+            android:label="Girassol"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="miguelcalado.restauracaomenus.MainActivity" />
+        </activity>
+        <activity
+            android:name=".SectorMaisDepFile.SectorMaisDep"
+            android:label="Sector + Dep"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="miguelcalado.restauracaomenus.MainActivity" />
+        </activity>
+        <activity
+            android:name=".LidiaFile.LidiaCafetaria"
+            android:label="Bar D.Lídia"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="miguelcalado.restauracaomenus.MainActivity" />
+        </activity>
+        <activity
+            android:name=".LidiaFile.Lidia"
+            android:label="Bar D.Lídia"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="miguelcalado.restauracaomenus.MainActivity" />
+        </activity>
+
+        <service
+            android:name="com.amazonaws.mobileconnectors.s3.transferutility.TransferService"
+            android:enabled="true" />
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        --><meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key"/>
+    </application>
+
+</manifest>
