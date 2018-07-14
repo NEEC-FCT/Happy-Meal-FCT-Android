@@ -15,6 +15,8 @@ android {
     aaptOptions.cruncherEnabled = false
     aaptOptions.useNewCruncher = false
 
+    useLibrary 'org.apache.http.legacy'
+
     buildTypes {
         release {
             minifyEnabled false
@@ -26,13 +28,9 @@ android {
 
 dependencies {
     implementation 'com.google.android.gms:play-services-maps:11.0.1'
-    implementation 'com.amazonaws:aws-android-sdk-core:2.2.13'
-    implementation 'com.amazonaws:aws-android-sdk-cognito:2.2.13'
-    implementation 'com.amazonaws:aws-android-sdk-s3:2.2.13'
-    implementation 'com.amazonaws:aws-android-sdk-ddb:2.2.13'
     implementation 'com.github.javiersantos:AppUpdater:2.6.1'
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     //noinspection GradleCompatible
@@ -47,8 +45,8 @@ dependencies {
     implementation 'com.nineoldandroids:library:2.4.0'
     implementation 'com.github.ksoichiro:android-observablescrollview:1.6.0'
 
-    testCompile 'junit:junit:4.12'
-    compile files('libs/picasso-2.5.2.jar')
+    testImplementation 'junit:junit:4.12'
+    implementation files('libs/picasso-2.5.2.jar')
     implementation 'com.github.chrisbanes:PhotoView:2.1.3'
 
 }

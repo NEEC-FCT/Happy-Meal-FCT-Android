@@ -1,74 +1,45 @@
 package miguelcalado.restauracaomenus;
 
-import android.app.Dialog;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.TransitionDrawable;
 import android.media.MediaPlayer;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
-import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
-import android.support.v4.app.NotificationCompat;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
-import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.MediaController;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.VideoView;
 
-import com.amazonaws.auth.CognitoCachingCredentialsProvider;
-import com.amazonaws.mobileconnectors.s3.transferutility.TransferListener;
-import com.amazonaws.mobileconnectors.s3.transferutility.TransferObserver;
-import com.amazonaws.mobileconnectors.s3.transferutility.TransferState;
-import com.amazonaws.mobileconnectors.s3.transferutility.TransferUtility;
-import com.amazonaws.regions.Region;
-import com.amazonaws.regions.Regions;
-import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.AmazonS3Client;
 import com.github.javiersantos.appupdater.AppUpdater;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
 
+import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.lang.reflect.Method;
+import java.net.URI;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Arrays;
 
-import miguelcalado.restauracaomenus.BarCampusFile.BarCampusFile.BarCampusCafetaria;
-import miguelcalado.restauracaomenus.CasaPessoalFile.CasaPessoalCafetaria;
-import miguelcalado.restauracaomenus.GirassolFile.GirassolCafetaria;
-import miguelcalado.restauracaomenus.TeresaFile.Teresa;
-
-import static android.content.Context.WIFI_SERVICE;
-import static java.lang.Thread.sleep;
 import static miguelcalado.restauracaomenus.MainActivity.optionCafetaria;
 import static miguelcalado.restauracaomenus.MainActivity.optionRefeicao;
-import static miguelcalado.restauracaomenus.Notification.makeNotification;
 
 /**
  * Created by Miguel-PC on 11/01/2018.
@@ -86,16 +57,23 @@ public class FirstScreen extends AppCompatActivity {
     String filename;
     String serverFilename;
     String bucket;
-    AmazonS3 s3;
-    TransferUtility transferUtility;
+
     Date now;
     Boolean isDownloading = false;
     private Context puta = FirstScreen.this;
+
+    public static String valueOf(Object obj) {
+        return (obj == null) ? "null" : obj.toString();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.firstscreen);
+
+
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
 
         AppUpdater appUpdater = new AppUpdater(this);
         appUpdater.start();
@@ -278,7 +256,6 @@ public class FirstScreen extends AppCompatActivity {
         happymeal.startAnimation(aniFade);
     }
 
-
     private void enableButtonWiFI() {
         WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         wifiManager.setWifiEnabled(true);
@@ -329,14 +306,65 @@ public class FirstScreen extends AppCompatActivity {
         dateTxt.setText(day.toString() + "/" + moth.toString() + "/" + year.toString());
     }
 
-    public void downloadThatShit() throws FileNotFoundException {
+    public void downloadThatShit() {
         // callback method to call credentialsProvider method.
-        credentialsProvider();
 
-        // callback method to call the setTransferUtility method
-        setTransferUtility();
+        System.out.println("Entrou");
+        try {
 
-        setFileToDownload();
+            String json = getInternetData();
+            FileOutputStream fOut = new FileOutputStream(createFile());
+            OutputStreamWriter myOutWriter = new OutputStreamWriter(fOut);
+            myOutWriter.append(json);
+
+            myOutWriter.close();
+
+            fOut.flush();
+            fOut.close();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public String getInternetData() throws Exception {
+
+
+        BufferedReader in = null;
+        String data = null;
+
+        try {
+            HttpClient client = new DefaultHttpClient();
+            client.getConnectionManager().getSchemeRegistry();
+
+            URI website = new URI("http://fcthub.neec-fct.com/maLucasNotification.json");
+            HttpGet request = new HttpGet();
+            request.setURI(website);
+            HttpResponse response = client.execute(request);
+            response.getStatusLine().getStatusCode();
+
+            in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+            StringBuffer sb = new StringBuffer("");
+            String l = "";
+            String nl = System.getProperty("line.separator");
+            while ((l = in.readLine()) != null) {
+                sb.append(l + nl);
+            }
+            in.close();
+            data = sb.toString();
+            return data;
+        } finally {
+            if (in != null) {
+                try {
+                    in.close();
+                    return data;
+                } catch (Exception e) {
+                    Log.e("GetMethodEx", e.getMessage());
+                }
+            }
+        }
     }
 
     public File createFile() {
@@ -346,24 +374,9 @@ public class FirstScreen extends AppCompatActivity {
 
     public void fileStarter() throws JSONException, ParseException, FileNotFoundException {
 
-            fileExists();
-            downloadThatShit();
+        fileExists();
+        downloadThatShit();
     }
-
-    /*public void menuAtualizado(String weekId, String timeStamp) {
-        if (swipe_active) {
-            //mySwipeRefreshLayout.setRefreshing(false);
-            swipe_active = false;
-        }
-        if (!weekId.equals(timeStamp)) { //estamos no dia de hoje mas ainda n são 9h
-
-            Toast.makeText(FirstScreen.this, "Menu de hoje disponível a partir das 9h",
-                    Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(FirstScreen.this, "Menu de hoje atualizado",
-                    Toast.LENGTH_SHORT).show();
-        }
-    }*/
 
     public boolean fileExists() {
         //File file = getFileStreamPath(filename);
@@ -375,142 +388,6 @@ public class FirstScreen extends AppCompatActivity {
         Log.d("state", valueOf(createFile().exists()));
         return false;
     }
-
-    public static String valueOf(Object obj) {
-        return (obj == null) ? "null" : obj.toString();
-    }
-
-    public void credentialsProvider() {
-
-        // Initialize the Amazon Cognito credentials provider
-        CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
-                getApplicationContext(),
-                "eu-west-1:2fe2b2a9-0d04-4d16-8fb4-51a61d9e92fa", // Identity pool ID
-                Regions.EU_WEST_1 // Region
-        );
-
-        setAmazonS3Client(credentialsProvider);
-    }
-    // Create an S3 client
-
-    /**
-     * Create a AmazonS3Client constructor and pass the credentialsProvider.
-     *
-     * @param credentialsProvider
-     */
-    public void setAmazonS3Client(CognitoCachingCredentialsProvider credentialsProvider) {
-        // Create an S3 client
-        s3 = new AmazonS3Client(credentialsProvider);
-        s3.setRegion(Region.getRegion(Regions.EU_WEST_1));
-    }
-
-    public void setTransferUtility() {
-        transferUtility = new TransferUtility(s3, getApplicationContext());
-    }
-
-    /**
-     * This method is used to Download the file to S3 by using transferUtility class
-     *
-     * @param //view
-     **/
-    public void setFileToDownload() throws FileNotFoundException {
-        File fileToDownload = createFile();
-
-        TransferObserver transferObserver = transferUtility.download(
-                bucket,     /* The bucket to download from */
-                serverFilename,    /* The key for the object to download */
-                fileToDownload        /* The file to download the object to */
-        );
-
-
-        //função para ler o estado da transferencia
-        transferObserverListener(transferObserver);
-
-    }
-
-    /**
-     * This is listener method of the TransferObserver
-     * Within this listener method, we got status of uploading and downloading file,
-     * to diaplay percentage of the part of file to be uploaded or downloaded to S3
-     * It display error, when there is problem to upload and download file to S3.
-     *
-     * @param transferObserver
-     */
-
-
-    boolean downloadComplete;
-    public void transferObserverListener(TransferObserver transferObserver) {
-        now = new Date();
-        downloadComplete=false;
-
-        transferObserver.setTransferListener(new TransferListener() {
-
-            @Override
-            public void onStateChanged(int id, TransferState state) {
-                Log.e("statechange", state + "");
-                //DisconnectMaybe(id);
-            }
-
-            @Override
-            public void onProgressChanged(int id, long bytesCurrent, long bytesTotal) {
-                int percentage = (int) (bytesCurrent / bytesTotal * 100);
-                    Log.e("percentage", percentage + "");
-                    if (percentage == 100 && !downloadComplete) {
-                        Log.d("NOW", "DONE");
-                        downloadComplete = true;
-                        JsonDic myDic = new JsonDic(filename, puta);
-                        String[] notifications = myDic.getNotifications();
-                        if (notifications!=null) {
-                            makeNotification(notifications, FirstScreen.this);
-                        }
-                    }
-
-            }
-
-            @Override
-            public void onError(int id, Exception ex) {
-                Log.e("error", "error");
-                Log.d("state", "UAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUA");
-            }
-        });
-    }
-/*
-    public void DisconnectMaybe(int id){
-        Log.d("state","CRYCRYCRYCRYCRYCRYCRYCRYCRYCRYCRYCRYCRYCRYCRYCRYCRYCRYCRYCRY");
-        Date then = new Date();
-        long a =  (long) then.getTime() - now.getTime();
-        Log.d("state",String.valueOf(a));
-        if (a > 4000 ){
-            Log.d("state","MAMAMAMAMAMAMAMAMAMAMAMAMAMAMAMAMAMAMAMAMAMAMAMA");
-            if (swipe_active) {
-                mySwipeRefreshLayout.setRefreshing(false);
-                swipe_active = false;
-            }
-            Toast.makeText(FirstScreen.this, "Verifica a tua conexão à internet", Toast.LENGTH_SHORT).show();
-            transferUtility.cancel(id);
-        }
-    }
-    */
-    /*
-    public void downloadCompletedSwipeRefresh() {
-        if (swipe_active) {
-            //mySwipeRefreshLayout.setRefreshing(false);
-            swipe_active = false;
-        }
-        try {
-            showMessageRefresh();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }*/
-
-    /*
-    public void showMessageRefresh() throws JSONException {
-        JsonDic Dic = new JsonDic(filename, this);
-        String date = Dic.getWeekId();
-        Toast.makeText(FirstScreen.this, "Atualizado com o dia: " + date,
-                Toast.LENGTH_SHORT).show();
-    }*/
 
     @Override
     protected void onRestart() {

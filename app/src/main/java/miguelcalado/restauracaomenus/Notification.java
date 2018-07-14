@@ -11,15 +11,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.amazonaws.auth.CognitoCachingCredentialsProvider;
-import com.amazonaws.mobileconnectors.s3.transferutility.TransferListener;
-import com.amazonaws.mobileconnectors.s3.transferutility.TransferObserver;
-import com.amazonaws.mobileconnectors.s3.transferutility.TransferState;
-import com.amazonaws.mobileconnectors.s3.transferutility.TransferUtility;
-import com.amazonaws.regions.Region;
-import com.amazonaws.regions.Regions;
-import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.AmazonS3Client;
+
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -295,8 +287,7 @@ public class Notification {
     String filename="pereira";
     String serverFilename;
     String bucket;
-    AmazonS3 s3;
-    TransferUtility transferUtility;
+
     Date now;
 
 
@@ -308,13 +299,7 @@ public class Notification {
         //que dá trabalho para se quisermos mudar o nome ou para debugging
         //DataHolder.getInstance().setDatafilename(this.filename);
 
-        // callback method to call credentialsProvider method.
-        credentialsProvider();
 
-        // callback method to call the setTransferUtility method
-        setTransferUtility();
-
-        setFileToDownload();
     }
 
     public File createFile() {
@@ -326,96 +311,9 @@ public class Notification {
         return (obj == null) ? "null" : obj.toString();
     }
 
-    public void credentialsProvider() {
-
-        // Initialize the Amazon Cognito credentials provider
-        CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
-                activity.getApplicationContext(),
-                "eu-west-1:2fe2b2a9-0d04-4d16-8fb4-51a61d9e92fa", // Identity pool ID
-                Regions.EU_WEST_1 // Region
-        );
-
-        setAmazonS3Client(credentialsProvider);
-    }
-    // Create an S3 client
-
-    /**
-     * Create a AmazonS3Client constructor and pass the credentialsProvider.
-     *
-     * @param credentialsProvider
-     */
-    public void setAmazonS3Client(CognitoCachingCredentialsProvider credentialsProvider) {
-        // Create an S3 client
-        s3 = new AmazonS3Client(credentialsProvider);
-        s3.setRegion(Region.getRegion(Regions.EU_WEST_1));
-    }
-
-    public void setTransferUtility() {
-        transferUtility = new TransferUtility(s3, activity.getApplicationContext());
-    }
-
-    /**
-     * This method is used to Download the file to S3 by using transferUtility class
-     *
-     * @param //view
-     **/
-    public void setFileToDownload() throws FileNotFoundException {
-        File fileToDownload = createFile();
-
-        TransferObserver transferObserver = transferUtility.download(
-                bucket,     /* The bucket to download from */
-                serverFilename,    /* The key for the object to download */
-                fileToDownload        /* The file to download the object to */
-        );
 
 
-        //função para ler o estado da transferencia
-        transferObserverListener(transferObserver);
 
-    }
-
-    /**
-     * This is listener method of the TransferObserver
-     * Within this listener method, we got status of uploading and downloading file,
-     * to diaplay percentage of the part of file to be uploaded or downloaded to S3
-     * It display error, when there is problem to upload and download file to S3.
-     *
-     * @param transferObserver
-     */
-
-    boolean downloadComplete;
-    public void transferObserverListener(TransferObserver transferObserver) {
-        now = new Date();
-        downloadComplete=false;
-
-        transferObserver.setTransferListener(new TransferListener() {
-
-            @Override
-            public void onStateChanged(int id, TransferState state) {
-                Log.e("statechange", state + "");
-                //DisconnectMaybe(id);
-            }
-
-            @Override
-            public void onProgressChanged(int id, long bytesCurrent, long bytesTotal) {
-                int percentage = (int) (bytesCurrent / bytesTotal * 100);
-                Log.e("percentage", percentage + "");
-                if (percentage == 100&&!downloadComplete) {
-                    Log.d("NOW", "DONE");
-                    downloadComplete=true;
-                    myJson = new JsonDic(filename, activity.getApplicationContext());
-                    updateNotification();
-                }
-
-            }
-
-            @Override
-            public void onError(int id, Exception ex) {
-                Log.e("error", "error");
-                Log.d("state", "UAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUA");
-            }
-        });
-    }
 
     private static String makeNotificationText(String[] notArray) {
         int i=0;
