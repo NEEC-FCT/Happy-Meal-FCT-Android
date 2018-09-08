@@ -339,7 +339,7 @@ public class FirstScreen extends AppCompatActivity {
             HttpClient client = new DefaultHttpClient();
             client.getConnectionManager().getSchemeRegistry();
 
-            URI website = new URI("http://fcthub.neec-fct.com/maLucasNotification.json");
+            URI website = new URI("http://fcthub.neec-fct.com/JSON/maLucasNotification.json");
             HttpGet request = new HttpGet();
             request.setURI(website);
             HttpResponse response = client.execute(request);
