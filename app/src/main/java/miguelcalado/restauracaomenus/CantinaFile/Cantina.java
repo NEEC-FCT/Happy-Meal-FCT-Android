@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.json.JSONObject;
@@ -25,6 +26,7 @@ import miguelcalado.restauracaomenus.DataHolder;
 import miguelcalado.restauracaomenus.JsonDic;
 import miguelcalado.restauracaomenus.MapsActivity;
 import miguelcalado.restauracaomenus.R;
+import miguelcalado.restauracaomenus.alignPrices;
 import miguelcalado.restauracaomenus.checkAtualizadoPorRestClass;
 
 //import com.example.android.RestauracaoFCT.R;
@@ -159,6 +161,9 @@ public class Cantina extends AppCompatActivity {
 
                 try {
                     String sobremesa[] = myJson.getStringArray("Cantina", "sobremesa");
+                    String sobremesa_final = final_String2(sobremesa);
+                    TextView peixes = (TextView) findViewById(R.id.sobremesaText);
+                    peixes.setText(sobremesa_final);
 
                 } catch (Exception e) {
                     e.printStackTrace();
