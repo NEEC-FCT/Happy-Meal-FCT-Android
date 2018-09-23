@@ -8,6 +8,5 @@
     <item
         android:id="@+id/lista"
         android:title="Lista"></item>
-    <item android:title="Notificação"></item>
 
 </menu>

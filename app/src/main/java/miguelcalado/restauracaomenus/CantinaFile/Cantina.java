@@ -162,8 +162,8 @@ public class Cantina extends AppCompatActivity {
                 try {
                     String sobremesa[] = myJson.getStringArray("Cantina", "sobremesa");
                     String sobremesa_final = final_String2(sobremesa);
-                    TextView peixes = (TextView) findViewById(R.id.sobremesaText);
-                    peixes.setText(sobremesa_final);
+                    TextView sobremesas = (TextView) findViewById(R.id.sobremesaText);
+                    sobremesas.setText(sobremesa_final);
 
                 } catch (Exception e) {
                     e.printStackTrace();

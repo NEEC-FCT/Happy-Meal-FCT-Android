@@ -56,8 +56,6 @@ import miguelcalado.restauracaomenus.CampusComeFile.CampusCome;
 import miguelcalado.restauracaomenus.CantinaFile.Cantina;
 import miguelcalado.restauracaomenus.CasaPessoalFile.CasaPessoal;
 import miguelcalado.restauracaomenus.CasaPessoalFile.CasaPessoalCafetaria;
-import miguelcalado.restauracaomenus.GirassolFile.Girassol;
-import miguelcalado.restauracaomenus.GirassolFile.GirassolCafetaria;
 import miguelcalado.restauracaomenus.LidiaFile.Lidia;
 import miguelcalado.restauracaomenus.LidiaFile.LidiaCafetaria;
 import miguelcalado.restauracaomenus.MySpotFile.MySpot;
@@ -325,14 +323,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
                         startActivity(teresa);
                         break;
-                    case "Girassol":
-                        Intent tia;
-                        if (opcao == 'r')
-                            tia = new Intent(MainActivity.this, Girassol.class);
-                        else
-                            tia = new Intent(MainActivity.this, GirassolCafetaria.class);
-                        startActivity(tia);
-                        break;
                     case "Casa do P.":
                         Intent casaPovo;
                         if (opcao == 'r')
@@ -410,14 +400,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                         else
                             teresa = new Intent(MainActivity.this, TeresaCafetaria.class);
                         startActivity(teresa);
-                        break;
-                    case "Girassol":
-                        Intent tia;
-                        if (opcao == 'r')
-                            tia = new Intent(MainActivity.this, Girassol.class);
-                        else
-                            tia = new Intent(MainActivity.this, GirassolCafetaria.class);
-                        startActivity(tia);
                         break;
                     case "Casa do P.":
                         Intent casaPovo;
@@ -663,11 +645,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         lojas.add(new Loja("Sector + Ed.7", "Edifício 7", R.drawable.sector_mais));
         addRestaurante(lojas.get(i), "Aberto", R.drawable.bolas_verde, false, 12, 14.30, -1, -1, "Preço Médio", "4.05€");
         addCafetaria(lojas.get(i), "Aberto", R.drawable.bolas_verde, 12, 14.30, "Preço Café", "0.50€");
-
-        i++;
-        lojas.add(new Loja("Girassol", "Edifício VIII", R.drawable.girassol));
-        addRestaurante(lojas.get(i), "Aberto", R.drawable.bolas_verde, false, 11, 14, -1, -1, "Preço Médio", "4.90€");
-        addCafetaria(lojas.get(i), "Aberto", R.drawable.bolas_verde, 11, 14, "Preço Café", "0.50€");
 
         i++;
         lojas.add(new Loja("Bar D. Lídia", "Edifício II", R.drawable.dlidiabar));
